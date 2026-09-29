@@ -1,0 +1,484 @@
+:root {
+  --navy: #14243b;
+  --biru: #1d5c94;
+  --langit: #e3eff8;
+  --kuning: #f5c518;
+  --teks: #14243b;
+  --redup: #4a5868;
+  --terang: #cfdbe8;
+  --garis: #c5d3df;
+  --putih: #ffffff;
+  --salah: #9a3b2e;
+  --benar: #24603a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--teks);
+  background: var(--putih);
+}
+
+a {
+  color: var(--biru);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--navy);
+}
+
+:focus-visible {
+  outline: 3px solid var(--biru);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+header :focus-visible,
+#pour :focus-visible,
+footer :focus-visible {
+  outline-color: var(--kuning);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -5rem;
+  padding: 0.6rem 1rem;
+  background: var(--kuning);
+  color: var(--navy);
+  font-weight: 700;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Lebar konten: rata tengah dengan maksimum 72rem, tanpa pembungkus tambahan */
+header,
+section,
+footer {
+  padding-inline: max(1.25rem, calc((100% - 72rem) / 2));
+}
+
+/* Header / hero */
+header {
+  padding-top: clamp(3rem, 8vw, 6rem);
+  background: var(--navy);
+  color: var(--putih);
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  max-width: 16ch;
+  font-size: clamp(2.5rem, 7.5vw, 5.25rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 1.25rem;
+  color: var(--terang);
+}
+
+nav {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.75rem;
+}
+
+nav a {
+  display: inline-block;
+  padding: 1rem 0 0.85rem;
+  border-bottom: 3px solid transparent;
+  color: var(--putih);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--putih);
+  border-bottom-color: var(--kuning);
+}
+
+/* Section */
+main {
+  display: block;
+}
+
+section {
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+@media (min-width: 56rem) {
+  section:not(#pour) {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    column-gap: 3rem;
+  }
+
+  section:not(#pour) > h2 {
+    grid-column: 1;
+  }
+
+  section:not(#pour) > *:not(h2) {
+    grid-column: 2;
+  }
+}
+
+#about,
+#anggota,
+#kekurangan {
+  background: var(--putih);
+}
+
+#kekuatan,
+#contoh {
+  background: var(--langit);
+}
+
+h2 {
+  margin: 0 0 1.25rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--biru);
+}
+
+h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+h4 {
+  margin: 2rem 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  max-width: 42rem;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.88em;
+  background: rgba(20, 36, 59, 0.08);
+  padding: 0.05em 0.3em;
+  border-radius: 3px;
+}
+
+/* Band POUR */
+#pour {
+  background: var(--navy);
+  color: var(--putih);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#pour h2 {
+  max-width: 30rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  color: var(--putih);
+}
+
+#pour > p {
+  color: var(--terang);
+  margin-bottom: 3rem;
+}
+
+#pour dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2.5rem 2rem;
+}
+
+#pour dl > div {
+  padding-top: 1rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+#pour dt {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--putih);
+}
+
+/* Huruf besar dibuat dengan CSS; teks alternatif kosong agar tidak dibaca dua kali oleh screen reader */
+#pour dt::before {
+  content: attr(data-huruf);
+  content: attr(data-huruf) / "";
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: clamp(5.5rem, 13vw, 8.5rem);
+  font-weight: 700;
+  line-height: 0.9;
+  color: var(--kuning);
+}
+
+#pour dd {
+  margin: 0.6rem 0 0;
+  color: var(--terang);
+  font-size: 1.05rem;
+}
+
+/* Daftar definisi lain */
+dl {
+  margin: 0 0 1.25rem;
+}
+
+dt {
+  font-weight: 700;
+  margin-top: 0.85rem;
+}
+
+dd {
+  margin: 0;
+  max-width: 42rem;
+}
+
+.meta {
+  padding: 0.25rem 0 0.5rem 1.25rem;
+  border-left: 4px solid var(--kuning);
+}
+
+/* Kekuatan dan kekurangan */
+#kekuatan ul,
+#kekurangan ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 42rem;
+}
+
+#kekuatan li,
+#kekurangan li {
+  position: relative;
+  margin-bottom: 1.75rem;
+  padding-left: 3rem;
+}
+
+#kekuatan li::before,
+#kekurangan li::before {
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#kekuatan li::before {
+  content: "+";
+  content: "+" / "";
+  background: var(--biru);
+  color: var(--putih);
+}
+
+#kekurangan li::before {
+  content: "\2212";
+  content: "\2212" / "";
+  background: var(--kuning);
+  color: var(--navy);
+}
+
+#kekuatan li strong,
+#kekurangan li strong {
+  display: block;
+  font-size: 1.15rem;
+}
+
+/* Aside */
+aside {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  max-width: 42rem;
+  background: rgba(20, 36, 59, 0.06);
+  border-left: 4px solid var(--biru);
+  font-size: 1rem;
+}
+
+aside h3 {
+  font-size: 1.05rem;
+}
+
+aside p:last-child,
+aside ul:last-child {
+  margin-bottom: 0;
+}
+
+aside ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+aside li {
+  margin-bottom: 0.4rem;
+}
+
+/* Tabel umum */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
+  color: var(--redup);
+  padding-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--garis);
+}
+
+thead th {
+  background: var(--navy);
+  color: var(--putih);
+  border-bottom: 0;
+}
+
+#anggota table {
+  max-width: 42rem;
+}
+
+#anggota th:first-child,
+#anggota td:first-child {
+  width: 4rem;
+}
+
+/* Tabel POUR */
+.tabel-scroll {
+  margin: 0 0 1.5rem;
+  overflow-x: auto;
+}
+
+.pour {
+  min-width: 42rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.pour th,
+.pour td {
+  vertical-align: top;
+}
+
+.pour tbody th {
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--biru);
+}
+
+/* Contoh kode */
+#contoh article {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem;
+}
+
+#contoh article > h3,
+#contoh article > p {
+  grid-column: 1 / -1;
+}
+
+#contoh article > h3 {
+  margin-bottom: 0;
+}
+
+#contoh article > p {
+  margin-bottom: 0.25rem;
+}
+
+figure {
+  margin: 0;
+  min-width: 0;
+}
+
+figcaption {
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+figure:nth-of-type(1) figcaption {
+  color: var(--salah);
+}
+
+figure:nth-of-type(2) figcaption {
+  color: var(--benar);
+}
+
+pre {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  background: var(--navy);
+  color: #eef3f8;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* Footer */
+footer {
+  padding-block: 2.5rem;
+  background: var(--navy);
+  color: var(--terang);
+  border-top: 6px solid var(--kuning);
+  font-size: 1rem;
+}
+
+footer p {
+  margin: 0 0 0.3rem;
+  max-width: none;
+}
