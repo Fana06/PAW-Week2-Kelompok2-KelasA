@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Web Accessibility dan HTML-CSS-JS Semantic | Review Jurnal</title>
+  <meta name="description" content="Review jurnal Using Blended HTML-CSS-JS Semantic to Implement Web Accessibility Principles karya Daniel Dang.">
+
+  <!-- Atkinson Hyperlegible: font yang dirancang Braille Institute untuk keterbacaan. Jika offline, otomatis memakai font sistem. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+
+  <header>
+    <h1>Menulis HTML yang bisa dipakai semua orang</h1>
+    <p class="subtitle">
+      Ulasan kami atas jurnal karya Daniel Dang tentang cara menerapkan
+      prinsip web accessibility lewat HTML, CSS, dan JavaScript semantic.
+    </p>
+
+    <nav aria-label="Navigasi bagian halaman">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="#pour">Prinsip POUR</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#kekuatan">Kekuatan</a></li>
+        <li><a href="#kekurangan">Kekurangan</a></li>
+        <li><a href="#contoh">Contoh Penerapan</a></li>
+        <li><a href="#anggota">Anggota Kelompok</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="konten">
+
+    <section id="pour" aria-labelledby="judul-pour">
+      <h2 id="judul-pour">Empat prinsip yang jadi dasar jurnal</h2>
+      <p>
+        Jurnal ini berpegang pada WCAG dari W3C, yang mengelompokkan panduan
+        accessibility ke dalam empat prinsip. Singkatannya POUR.
+      </p>
+      <dl>
+        <div>
+          <dt data-huruf="P">Perceivable</dt>
+          <dd>Informasi dan komponen antarmuka harus bisa ditangkap pengguna, misalnya lewat teks alternatif untuk gambar dan video.</dd>
+        </div>
+        <div>
+          <dt data-huruf="O">Operable</dt>
+          <dd>Seluruh fungsi harus bisa dijalankan, termasuk lewat keyboard tanpa mouse.</dd>
+        </div>
+        <div>
+          <dt data-huruf="U">Understandable</dt>
+          <dd>Isi dan cara kerja antarmuka harus jelas, dengan bahasa sederhana dan navigasi yang konsisten.</dd>
+        </div>
+        <div>
+          <dt data-huruf="R">Robust</dt>
+          <dd>Kode harus valid dan mengikuti standar agar terbaca dengan benar oleh browser maupun assistive technology.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="about" aria-labelledby="judul-about">
+      <h2 id="judul-about">About</h2>
+
+      <article>
+        <h3>Ringkasan jurnal</h3>
+
+        <dl class="meta">
+          <dt>Judul</dt>
+          <dd>Using Blended HTML-CSS-JS Semantic to Implement Web Accessibility Principles</dd>
+
+          <dt>Penulis</dt>
+          <dd>Daniel Dang, Eastern Institute of Technology Te Aho a Māui (EIT), Selandia Baru</dd>
+
+          <dt>Tahun terbit</dt>
+          <dd><time datetime="2024">2024</time> (dipresentasikan di konferensi CITRENZ pada September 2023)</dd>
+
+          <dt>Terbitan</dt>
+          <dd>Proceedings: CITRENZ 2023 Conference, Auckland, halaman 70&ndash;77. ePress, Unitec.</dd>
+        </dl>
+
+        <p>
+          Jurnal ini berangkat dari pengalaman mengajar mata kuliah Website Development
+          pada program Bachelor of Computing Systems di EIT. Penulis menilai web
+          accessibility, yaitu upaya agar situs bisa dipakai orang dengan keterbatasan
+          fisik, keterbatasan situasional (misalnya layar kecil atau cahaya matahari
+          yang terlalu terang), maupun keterbatasan bandwidth, sebagai topik yang
+          penting tetapi sulit diajarkan.
+        </p>
+
+        <p>
+          Ada tiga pertanyaan yang dijawab: apa itu prinsip web accessibility, apa saja
+          tantangan mengajarkannya kepada mahasiswa S1, dan bagaimana HTML, CSS, dan
+          JavaScript semantic digabungkan untuk membangun situs yang accessible.
+        </p>
+
+        <h4>Empat tantangan mengajarkannya</h4>
+        <p>
+          Penulis mengelompokkan tantangan menjadi kompleksitas teknis, keterbatasan
+          waktu perkuliahan, keterbatasan sumber daya untuk menguji dengan assistive
+          technology, dan rendahnya kesadaran mahasiswa. Pada survei kecil tahun 2021,
+          banyak mahasiswa lebih memilih desain responsif untuk mobile daripada
+          accessibility.
+        </p>
+
+        <h4>Kontribusi utama</h4>
+        <p>
+          Bagian inti jurnal adalah tabel panduan yang memetakan tiap prinsip POUR ke
+          teknik yang konkret di HTML, CSS, dan JavaScript. Tabel di bawah merangkum
+          isinya dengan kata-kata kami sendiri; versi lengkapnya ada di Tabel 2 pada
+          jurnal.
+        </p>
+
+        <div class="tabel-scroll" role="region" aria-labelledby="cap-pour" tabindex="0">
+          <table class="pour">
+            <caption id="cap-pour">Ringkasan teknik per prinsip POUR</caption>
+            <thead>
+              <tr>
+                <th scope="col">Prinsip</th>
+                <th scope="col">HTML</th>
+                <th scope="col">CSS</th>
+                <th scope="col">JavaScript</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Perceivable</th>
+                <td>Teks <code>alt</code> pada gambar, <code>&lt;figure&gt;</code> dan <code>&lt;figcaption&gt;</code>, elemen sectioning, caption untuk audio dan video.</td>
+                <td>Layout responsif dengan Grid dan Flexbox, meta viewport, gaya khusus untuk cetak.</td>
+                <td>Toggle dan dropdown dengan atribut ARIA, progressive enhancement.</td>
+              </tr>
+              <tr>
+                <th scope="row">Operable</th>
+                <td>Landmark role ARIA, teks link yang deskriptif (bukan &ldquo;klik di sini&rdquo;).</td>
+                <td>Gaya focus yang jelas, animasi secukupnya dan bisa dimatikan.</td>
+                <td>Event keyboard untuk semua elemen interaktif, kontrol untuk menghentikan animasi.</td>
+              </tr>
+              <tr>
+                <th scope="row">Understandable</th>
+                <td>Tabel dengan <code>&lt;th&gt;</code> dan <code>scope</code>, heading berurutan, <code>&lt;label&gt;</code> pada form, <code>&lt;fieldset&gt;</code> dan <code>&lt;legend&gt;</code>.</td>
+                <td>Urutan tab yang logis, font terbaca, kontras warna cukup, tidak mengandalkan warna saja.</td>
+                <td>Gaya focus khusus, skip link untuk melompati navigasi berulang.</td>
+              </tr>
+              <tr>
+                <th scope="row">Robust</th>
+                <td>Pakai <code>&lt;button&gt;</code> untuk tombol, bukan <code>&lt;div&gt;</code> atau <code>&lt;span&gt;</code> dengan event klik.</td>
+                <td>Menyembunyikan konten secara visual tetapi tetap terbaca screen reader, uji dengan pengguna disabilitas.</td>
+                <td>Uji komponen dengan assistive technology, validasi form dengan pesan error yang terhubung ke field.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Kesimpulan penulis</h4>
+        <p>
+          Penulis menutup dengan menyebut pengajaran web accessibility sebagai
+          kebutuhan teknis sekaligus tanggung jawab moral. Menurutnya, HTML semantic
+          paling efektif bila dipadukan dengan ARIA, dan hasil kerjanya perlu diuji
+          dengan berbagai alat serta melibatkan pengguna penyandang disabilitas.
+        </p>
+      </article>
+
+      <aside aria-labelledby="judul-sitasi">
+        <h3 id="judul-sitasi">Sitasi</h3>
+        <p>
+          Dang, D. (2024). Using Blended HTML-CSS-JS Semantic to Implement Web
+          Accessibility Principles. Dalam H. Sharifzadeh (Ed.),
+          <cite>Proceedings: CITRENZ 2023 Conference, Auckland, 27&ndash;29 September</cite>
+          (hlm. 70&ndash;77). ePress, Unitec.
+        </p>
+        <p>
+          <a href="https://doi.org/10.34074/proc.240110">doi.org/10.34074/proc.240110</a>
+        </p>
+        <p>Lisensi: CC BY-NC 4.0.</p>
+      </aside>
+    </section>
+
+    <section id="kekuatan" aria-labelledby="judul-kekuatan">
+      <h2 id="judul-kekuatan">Kekuatan</h2>
+      <ul>
+        <li>
+          <strong>Panduan mudah dipraktikkan.</strong>
+          Tabel yang memisahkan teknik per prinsip dan per bahasa (HTML, CSS, JS)
+          bisa langsung dipakai sebagai daftar periksa saat membuat halaman web.
+        </li>
+        <li>
+          <strong>Kerangka yang jelas.</strong>
+          Seluruh pembahasan disusun di sekitar POUR dari WCAG, sehingga pembaca
+          punya satu patokan yang diakui luas.
+        </li>
+        <li>
+          <strong>Relevan dengan kebutuhan mahasiswa.</strong>
+          Jurnal membahas tantangan belajar yang nyata, termasuk temuan bahwa
+          sebagian mahasiswa menganggap accessibility bisa dikalahkan oleh desain
+          responsif.
+        </li>
+        <li>
+          <strong>Menekankan kombinasi HTML, CSS, dan JS.</strong>
+          Accessibility tidak diperlakukan sebagai urusan satu bahasa saja, dan
+          penulis menegaskan bahwa HTML semantic sebaiknya dilengkapi ARIA.
+        </li>
+        <li>
+          <strong>Mengingatkan pentingnya pengujian.</strong>
+          Penulis menyarankan pengujian dengan assistive technology dan melibatkan
+          pengguna penyandang disabilitas.
+        </li>
+        <li>
+          <strong>Singkat dan mudah diakses.</strong>
+          Hanya delapan halaman isi, ditulis dengan bahasa lugas, dan terbuka
+          dengan lisensi Creative Commons.
+        </li>
+      </ul>
+    </section>
+
+    <section id="kekurangan" aria-labelledby="judul-kekurangan">
+      <h2 id="judul-kekurangan">Kekurangan</h2>
+      <ul>
+        <li>
+          <strong>Metodologi kurang dijelaskan.</strong>
+          Meski ada bagian research design, tidak dijelaskan bagaimana panduan pada
+          Tabel 2 disusun atau divalidasi. Sifatnya lebih mirip ringkasan praktik
+          terbaik daripada penelitian empiris.
+        </li>
+        <li>
+          <strong>Data survei sangat terbatas.</strong>
+          Satu-satunya data adalah survei kecil pada 2021 yang jumlah respondennya
+          tidak disebutkan, dan hasilnya hanya dijelaskan secara umum.
+        </li>
+        <li>
+          <strong>Tanpa contoh kode dan evaluasi.</strong>
+          Panduan hanya berupa daftar poin. Tidak ada cuplikan kode, contoh
+          halaman, atau bukti bahwa pendekatan ini benar-benar meningkatkan
+          pemahaman mahasiswa. (Karena itu kami menambahkan contoh sendiri di
+          bagian berikutnya.)
+        </li>
+        <li>
+          <strong>Beberapa istilah kurang tepat.</strong>
+          Misalnya <code>alt</code> ditulis sebagai elemen padahal merupakan
+          atribut, dan urutan tab disebut bisa diatur lewat CSS padahal pada
+          dasarnya mengikuti urutan elemen di HTML.
+        </li>
+        <li>
+          <strong>Tidak menyebut versi WCAG.</strong>
+          Versi dan level kepatuhan (A, AA, AAA) tidak dijelaskan, padahal itu
+          yang biasa dipakai sebagai target dalam praktik.
+        </li>
+        <li>
+          <strong>Ruang lingkup dan rujukan terbatas.</strong>
+          Studi hanya berangkat dari satu mata kuliah di satu institusi, dan daftar
+          pustakanya hanya lima entri, sebagian berupa halaman web.
+        </li>
+      </ul>
+    </section>
+
+    <section id="contoh" aria-labelledby="judul-contoh">
+      <h2 id="judul-contoh">Contoh Penerapan</h2>
+      <p>
+        Karena jurnal tidak menyertakan kode, berikut tiga contoh sederhana yang
+        kami tulis sendiri untuk menggambarkan anjuran di tabel di atas.
+      </p>
+
+      <article>
+        <h3>Tombol harus berupa <code>&lt;button&gt;</code></h3>
+        <p>
+          Elemen <code>&lt;div&gt;</code> tidak bisa difokus dengan Tab dan tidak
+          dikenali screen reader sebagai tombol. <code>&lt;button&gt;</code>
+          mendapatkan keduanya tanpa tambahan apa pun.
+        </p>
+        <figure>
+          <figcaption>Kurang tepat</figcaption>
+          <pre tabindex="0"><code>&lt;div class="tombol" onclick="simpan()"&gt;Simpan&lt;/div&gt;</code></pre>
+        </figure>
+        <figure>
+          <figcaption>Lebih tepat</figcaption>
+          <pre tabindex="0"><code>&lt;button type="button" onclick="simpan()"&gt;Simpan&lt;/button&gt;</code></pre>
+        </figure>
+      </article>
+
+      <article>
+        <h3>Field form harus punya label</h3>
+        <p>
+          Placeholder hilang begitu pengguna mengetik dan tidak selalu dibacakan
+          sebagai nama field. <code>&lt;label&gt;</code> yang terhubung lewat
+          <code>for</code> dan <code>id</code> juga membuat area klik lebih luas.
+        </p>
+        <figure>
+          <figcaption>Kurang tepat</figcaption>
+          <pre tabindex="0"><code>&lt;input type="text" placeholder="Nama"&gt;</code></pre>
+        </figure>
+        <figure>
+          <figcaption>Lebih tepat</figcaption>
+          <pre tabindex="0"><code>&lt;label for="nama"&gt;Nama&lt;/label&gt;
+&lt;input type="text" id="nama" name="nama"&gt;</code></pre>
+        </figure>
+      </article>
+
+      <article>
+        <h3>Gambar butuh teks alternatif dan keterangan</h3>
+        <p>
+          Atribut <code>alt</code> menggantikan gambar bagi pengguna yang tidak
+          melihatnya, sedangkan <code>&lt;figcaption&gt;</code> memberi keterangan
+          yang tampil untuk semua orang.
+        </p>
+        <figure>
+          <figcaption>Kurang tepat</figcaption>
+          <pre tabindex="0"><code>&lt;img src="grafik-survei.png"&gt;</code></pre>
+        </figure>
+        <figure>
+          <figcaption>Lebih tepat</figcaption>
+          <pre tabindex="0"><code>&lt;figure&gt;
+  &lt;img src="grafik-survei.png"
+       alt="Diagram batang hasil survei mahasiswa tahun 2021"&gt;
+  &lt;figcaption&gt;Hasil survei mahasiswa, 2021&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+        </figure>
+      </article>
+
+      <aside aria-labelledby="judul-halaman-ini">
+        <h3 id="judul-halaman-ini">Yang sudah diterapkan di halaman ini</h3>
+        <ul>
+          <li>Skip link di paling atas untuk melompati navigasi.</li>
+          <li>Landmark <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, dan <code>&lt;footer&gt;</code>.</li>
+          <li>Heading berurutan dari h1 sampai h4, tanpa loncat level.</li>
+          <li>Tabel memakai <code>&lt;caption&gt;</code>, <code>&lt;th&gt;</code>, dan <code>scope</code>.</li>
+          <li>Fokus keyboard terlihat jelas dan warna teks berkontras tinggi.</li>
+          <li>Font Atkinson Hyperlegible, yang dirancang khusus agar huruf mudah dibedakan.</li>
+          <li>Tampilan menyesuaikan layar kecil lewat meta viewport dan CSS responsif.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="anggota" aria-labelledby="judul-anggota">
+      <h2 id="judul-anggota">Anggota Kelompok</h2>
+      <table>
+        <caption>Daftar anggota kelompok</caption>
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Nama</th>
+            <th scope="col">NIM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Reyhan Arya Yudha</td>
+            <td>20240140025</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Amiludin Nazar Ali Ghufron</td>
+            <td>20240140005</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Aquilla Faza Naufan</td>
+            <td>20240140006</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Bintang Aulia Farhantifka</td>
+            <td>20240140051</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Arby Pangestu</td>
+            <td>20240140167</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Tugas Kelompok PAW Week 2, Kelas A.</p>
+    <p>Landing page ini dibuat dengan HTML semantic sebagai bagian dari tugas kuliah.</p>
+  </footer>
+
+</body>
+</html>
