@@ -125,11 +125,12 @@
             yang sulit diakses? Tulis di sini.
           </p>
           <p class="catatan">
-            Formulir ini baru contoh tampilan dan belum terhubung ke server.
+            Formulir ini baru contoh tampilan dan belum terhubung ke server,
+            jadi tombol kirim belum mengirim data.
           </p>
         </div>
 
-        <form class="form" action="#kontak" method="get">
+        <form class="form">
           <div class="field">
             <label for="nama">Nama</label>
             <input type="text" id="nama" name="nama" autocomplete="name" required>
@@ -166,6 +167,7 @@
 
           <div class="span-2">
             <button class="btn btn-utama" type="submit">Kirim pesan</button>
+            <p class="status-pesan" id="status-pesan" role="status" aria-live="polite" hidden></p>
           </div>
         </form>
       </div>
@@ -210,5 +212,22 @@
     </div>
   </footer>
 
+
+  <script>
+    const form = document.querySelector('.form');
+    const statusPesan = document.querySelector('#status-pesan');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      statusPesan.hidden = false;
+      statusPesan.textContent = 'Pesan berhasil dikirim! (Simulasi, belum terhubung ke server.)';
+    });
+  </script>
 </body>
 </html>
