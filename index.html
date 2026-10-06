@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -19,13 +19,17 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html">Catatan Aksesibilitas</a>
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" width="32" height="32" alt="">
+        <span>Catatan Aksesibilitas</span>
+      </a>
 
       <nav aria-label="Navigasi utama">
         <ul class="menu">
           <li><a href="index.html" aria-current="page">Beranda</a></li>
           <li><a href="#fitur">Prinsip</a></li>
-          <li><a href="landing-jurnal.html">Ulasan Jurnal</a></li>
+          <li><a href="landing-page.html">Ulasan Jurnal</a></li>
+          <li><a href="#kontak">Masukan</a></li>
           <li><a href="#tim">Tim</a></li>
         </ul>
       </nav>
@@ -44,17 +48,18 @@
             Ada ringkasan, contoh kode, dan ulasan kekuatan serta kekurangannya.
           </p>
           <div class="aksi">
-            <a class="btn btn-utama" href="landing-jurnal.html">Baca ulasan jurnal</a>
+            <a class="btn btn-utama" href="landing-page.html">Baca ulasan jurnal</a>
             <a class="btn btn-sekunder" href="#fitur">Lihat empat prinsip</a>
           </div>
         </div>
 
-        <figure class="hero-gambar">
+        <figure class="hero-gambar hero-kartu">
           <img
-            src="hero.svg"
+            src="assets/hero.svg"
             width="560"
             height="440"
             alt="Ilustrasi halaman web dengan gambar berlabel alt, tombol berbingkai fokus kuning, contoh kontras warna, dan empat kotak huruf P, O, U, R.">
+          <figcaption>Contoh halaman yang memenuhi empat prinsip POUR.</figcaption>
         </figure>
       </div>
     </section>
@@ -111,6 +116,61 @@
       </div>
     </section>
 
+    <section class="kontak" id="kontak" aria-labelledby="judul-kontak">
+      <div class="container kontak-inner">
+        <div class="kontak-teks">
+          <h2 id="judul-kontak">Kirim masukan</h2>
+          <p>
+            Punya pertanyaan tentang ulasan kami, atau menemukan bagian halaman
+            yang sulit diakses? Tulis di sini.
+          </p>
+          <p class="catatan">
+            Formulir ini baru contoh tampilan dan belum terhubung ke server.
+          </p>
+        </div>
+
+        <form class="form" action="#kontak" method="get">
+          <div class="field">
+            <label for="nama">Nama</label>
+            <input type="text" id="nama" name="nama" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="petunjuk-email">
+            <p class="petunjuk" id="petunjuk-email">Hanya dipakai untuk membalas pesan.</p>
+          </div>
+
+          <div class="field">
+            <label for="topik">Topik</label>
+            <select id="topik" name="topik">
+              <option value="jurnal">Pertanyaan tentang jurnal</option>
+              <option value="aksesibilitas">Masalah aksesibilitas di situs ini</option>
+              <option value="lainnya">Lainnya</option>
+            </select>
+          </div>
+
+          <fieldset class="field">
+            <legend>Kamu membaca sebagai</legend>
+            <div class="pilihan">
+              <label><input type="radio" name="peran" value="mahasiswa" checked> Mahasiswa</label>
+              <label><input type="radio" name="peran" value="dosen"> Dosen</label>
+              <label><input type="radio" name="peran" value="lainnya"> Lainnya</label>
+            </div>
+          </fieldset>
+
+          <div class="field span-2">
+            <label for="pesan">Pesan</label>
+            <textarea id="pesan" name="pesan" rows="5" required></textarea>
+          </div>
+
+          <div class="span-2">
+            <button class="btn btn-utama" type="submit">Kirim pesan</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <section class="tentang" aria-labelledby="judul-tentang">
       <div class="container tentang-inner">
         <div>
@@ -120,7 +180,7 @@
             teknik per prinsip, kekuatan dan kekurangan, serta contoh kode
             yang kami tulis sendiri.
           </p>
-          <a class="btn btn-utama btn-terang" href="landing-jurnal.html">Buka ulasan jurnal</a>
+          <a class="btn btn-utama btn-terang" href="landing-page.html">Buka ulasan jurnal</a>
         </div>
 
         <dl class="info-jurnal">
